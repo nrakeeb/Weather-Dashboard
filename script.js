@@ -86,4 +86,24 @@ $(document).ready(function () {
       fiveDayForecast(results);
     });
   }
+  //convertint unix time to actual date
+  function dateConverter(dt) {
+    var inMilliseconds = dt * 1000;
+    var inDateFormat = new Date(inMilliseconds);
+    var currentIntMonth = inDateFormat.getMonth() + 1;
+    var currentIntDay = inDateFormat.getDate();
+    var currentIntYear = inDateFormat.getFullYear();
+    $("#currentCityInfo").append(
+      "<span>" +
+        "(" +
+        currentIntMonth +
+        "/" +
+        currentIntDay +
+        "/" +
+        currentIntYear +
+        ")" +
+        "</span>"
+    );
+  }
+
 
