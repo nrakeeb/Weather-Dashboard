@@ -62,4 +62,28 @@ $(document).ready(function () {
     weatherIcon(currentWethIcon);
   }
 
- 
+  function findWithCoords(currentCityCoLat, currentCityCoLon) {
+    var apiKey = "6406ca836e96fe35d13d0645f945ad0b";
+    var queryURL2 =
+      "https://api.openweathermap.org/data/2.5/onecall?lat=" +
+      currentCityCoLat +
+      "&lon=" +
+      currentCityCoLon +
+      "&exclude=minutely,hourly&units=imperial&appid=" +
+      apiKey;
+    $.ajax({
+      url: queryURL2,
+      method: "GET",
+    }).then(function (results) {
+      var currentCityTemp = results.current.temp;
+      $("#currentTemp").text("Temperature: " + currentCityTemp + " \u00B0F");
+      var currentCityHum = results.current.humidity;
+      $("#currentHumid").text("Humidity: " + currentCityHum + "%");
+      var currentCityWinSpeed = results.current.wind_speed;
+      $("#currentWind").text("Wind Speed: " + currentCityWinSpeed + " MPH");
+      var currentCityUvi = results.current.uvi;
+      uviIndexSeverity(currentCityUvi);
+      fiveDayForecast(results);
+    });
+  }
+
