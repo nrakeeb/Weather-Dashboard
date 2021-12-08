@@ -6,40 +6,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/style.css">
     <title>Weather Dashboard</title>
 </head>
 
 <body>
-    <header>
-        <h1>Weather Dashboard</h1>
-    </header>
-    <main class="container-fluid">
-        <div class="row">
-            <div class="col-12 col-md-3 p-2 search-column">
-                <form class="border p-2" id="city-search">
-                    <h4>Search for a City</h2>
-                        <input id="city" type="text" autofocus="true" class="search-bar" />
-                        <button id="btn" type="submit">Search</button>
-                </form>
-                <div class="past-search border" id="past-search"></div>
-            </div>
-            <div class="col-12 col-md-9">
-                <div class="row border selectedcity" id="currentforecast">
-                    <div class="col-12">
-                        <h2 id="searched-city"></h2>
-                        <div id="currentweather" class="list-group"></div>
+    <body>
+        <header class="bg-dark text-center">
+            <h1>Weather Dashboard</h1>
+        </header>
+    
+        <div class="container">
+            <div class="row">
+    
+                <div class="container col-3 searchContainer">
+                    <div class="container">
+                        <h4>Search a city:</h4>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="city name" id="userInput" aria-label=""
+                                aria-describedby="button-addon2">
+                            <button type="button" class="btn btn-success" id="searchBtn"><i
+                                    class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                    <div id="searchHistory" class="container">
                     </div>
                 </div>
-                <div class="row border" id="fivedayforecast">
-                    <h2 class="col-12" id="forecast"></h2>
-                    <div class="d-flex" id="fivedaycontainer"></div>
+    
+                <div class="col-9">
+                    <div class="row hide" id="currentCity">
+                        <h3 id="currentCityInfo"><img id="weatherImage"><img></h3>
+                        <p id="currentTemp"></p>
+                        <p id="currentHumid"></p>
+                        <p id="currentWind"></p>
+                        <p id="currentUvi"></p>
+                    </div>
+                    <div class="row hide" id="forecast">
+                    </div>
                 </div>
+    
             </div>
         </div>
-    </main>
-
-    <script src="script.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
 </body>
 
 </html>
