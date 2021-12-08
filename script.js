@@ -49,4 +49,17 @@ $(document).ready(function () {
     $("#userInput").val("");
   });
 
+  function weatherForecast(results) {
+    $(".hide").attr("class", "row");
+    var currentCityName = results.name;
+    $("#currentCityInfo").text(currentCityName + " ");
+    var currentCityLon = results.coord.lon;
+    var currentCityLat = results.coord.lat;
+    findWithCoords(currentCityLat, currentCityLon);
+    var currentCityDt = results.sys.sunrise;
+    dateConverter(currentCityDt);
+    var currentWethIcon = results.weather[0].icon;
+    weatherIcon(currentWethIcon);
+  }
+
  
