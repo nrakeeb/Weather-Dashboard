@@ -106,4 +106,77 @@ $(document).ready(function () {
     );
   }
 
+  //weather icon
+  function weatherIcon(currentWethIcon) {
+    var currentWethImg = "assets/images/" + currentWethIcon + "@2x.png";
+    var currentWethIconImg = $("<img>");
+    currentWethIconImg.attr("src", currentWethImg);
+    $("#currentCityInfo").append(currentWethIconImg);
+  }
+
+  //get uv index severity and color code
+  function uviIndexSeverity(currentCityUvi) {
+    $("#currentUvi").text("");
+    var uviIndexText = $("<span>");
+    uviIndexText.text("UV Index: ");
+    $("#currentUvi").append(uviIndexText);
+    var currentCityUviHolder = $("<span>");
+    if (currentCityUvi >= 0 && currentCityUvi <= 2) {
+      currentCityUviHolder.attr("class", "low-uvi");
+    } else if (currentCityUvi > 2 && currentCityUvi <= 5) {
+      currentCityUviHolder.attr("class", "moderate-uvi");
+    } else if (currentCityUvi > 5 && currentCityUvi <= 7) {
+      currentCityUviHolder.attr("class", "high-uvi");
+    } else if (currentCityUvi > 7 && currentCityUvi <= 10) {
+      currentCityUviHolder.attr("class", "very-high-uvi");
+    } else if (currentCityUvi > 10) {
+      currentCityUviHolder.attr("class", "extreme-uvi forecast-square");
+    }
+    currentCityUviHolder.text(currentCityUvi);
+    $("#currentUvi").append(currentCityUviHolder);
+  }
+
+  function fiveDayForecast(results) {
+    $("#forecast").text("");
+    var forecastHeader = $("<h4>");
+    forecastHeader.text("5-Day Forecast:");
+    $("#forecast").append(forecastHeader);
+    for (i = 1; i < 6; i++) {
+      var forecastSquare = $("<div>");
+      forecastSquare.attr("class", "col forecast-square");
+      //date
+      var forecastDateP = $("<p>");
+      var forecastDate = results.daily[i].sunrise;
+      var inMilliseconds = forecastDate * 1000;
+      var inDateFormat = new Date(inMilliseconds);
+      var currentIntMonth = inDateFormat.getMonth() + 1;
+      var currentIntDay = inDateFormat.getDate();
+      var currentIntYear = inDateFormat.getFullYear();
+      var monthDayYear =
+        currentIntMonth + "/" + currentIntDay + "/" + currentIntYear;
+      forecastDateP.append(monthDayYear);
+      //icon
+      var forecastWethImg =
+        "assets/images/" + results.daily[i].weather[0].icon + "@2x.png";
+      var forecastWethIcon = $("<img>");
+      forecastWethIcon.attr("src", forecastWethImg);
+      //temp
+      var forecastTempP = $("</p>");
+      var forecastTemp = "Temp: " + results.daily[i].temp.max + " \u00B0F";
+      forecastTempP.append(forecastTemp);
+      //humidity
+      var forecastHumP = $("<p>");
+      var forecastHum = "Humidity: " + results.daily[i].humidity + "%";
+      forecastHumP.append(forecastHum);
+      forecastSquare.append(
+        forecastDateP,
+        forecastWethIcon,
+        forecastTempP,
+        forecastHumP
+      );
+      $("#forecast").append(forecastSquare);
+    }
+  }
+
+
 
