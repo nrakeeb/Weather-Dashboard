@@ -1,0 +1,39 @@
+html,
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  height: 100%;
+}
+
+h1 {
+  color: white;
+  padding: 10px;
+}
+
+.searchContainer {
+  border: 5px solid #000000;
+}
+
+#currentCity {
+  border: solid;
+  border-width: 5px;
+  border-color: black;
+  padding: 5px;
+  margin: 5px;
+}
+
+#forecast {
+  padding: 5px;
+  margin: 5px;
+}
+
+.hide {
+  display: none;
+}
+
+.btn-info {
+  margin: 2.5px;
+}
+
+.forecast-square {
+  border: 3px solid black;
+}
