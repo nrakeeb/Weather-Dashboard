@@ -8,7 +8,6 @@
 - [Installation](#installation)
 - [Usage](#usage)
 - [Screen Shots](#screenShots)
-- [Testing](#testing)
 
 ## 🔍 Description:
 
@@ -29,6 +28,12 @@ enter a city into the search bar.
 This application is covered by the MIT license.
 
 ## ScreenShots:
+
+![weather dashboard 1](https://user-images.githubusercontent.com/82734765/145503309-9554c09d-172f-41ab-b932-410e4bd8655c.PNG)
+
+
+![weather dashboard 2](https://user-images.githubusercontent.com/82734765/145503322-3c08ad9a-ba4e-454c-aab2-169a522bce3a.PNG)
+
 
 ## Questions:
 
